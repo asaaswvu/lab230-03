@@ -21,7 +21,7 @@ class NameGUI extends JFrame implements ActionListener{
         JButton btnSample = new JButton("Sample Button");
         JButton btnQuit = new JButton("Quit");
         JButton btnSwap = new JButton("Swap");
-        
+        JButton btnalamri= new JButton("alamri");
         //create sample textboxes
         txtWord1 = new JTextField(15);
         txtWord2 = new JTextField(15);
@@ -36,18 +36,19 @@ class NameGUI extends JFrame implements ActionListener{
         btnQuit.addActionListener(this);
         btnSwap.setActionCommand("swap");  
         btnSwap.addActionListener(this);
- 
+        btnalamri.setActionCommand("Alamri");
+        btnalamri.addActionListener(this);
         //Add components to proper panels
         panelTop.add(btnSample);
         panelTop.add(btnQuit);
         
         //panelMiddle.add(btnYourButton);
-
+        panelMiddle.add(btnalamri);
         panelBottom.add(lblSwap);
         panelBottom.add(btnSwap);
         panelBottom.add(txtWord1);
         panelBottom.add(txtWord2);
-        
+       
         //Add individual panels to panelMain, applies to BORDERLAYOUT only
         //PAGE_START is top of screen
         //PAGE_END is bottom of screen
@@ -122,7 +123,10 @@ class NameGUI extends JFrame implements ActionListener{
             case "help" :
                 JOptionPane.showMessageDialog(this,"There is no help for you.","Sorry",JOptionPane.WARNING_MESSAGE);
                 break;
-                
+    case "Alamri":
+                JOptionPane.showMessageDialog(this,"Alamri","This is " ,JOptionPane.PLAIN_MESSAGE);
+                break;
+            
         }
     }
     
