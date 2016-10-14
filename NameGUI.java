@@ -22,6 +22,8 @@ class NameGUI extends JFrame implements ActionListener{
         JButton btnQuit = new JButton("Quit");
         JButton btnSwap = new JButton("Swap");
         
+        JButton nameButton = new JButton("Name Button");
+        
         //create sample textboxes
         txtWord1 = new JTextField(15);
         txtWord2 = new JTextField(15);
@@ -34,15 +36,20 @@ class NameGUI extends JFrame implements ActionListener{
         btnSample.addActionListener(this);
         btnQuit.setActionCommand("quit");  //your command will have to be unique
         btnQuit.addActionListener(this);
-        btnSwap.setActionCommand("swap");  
+        btnSwap.setActionCommand("swap");
         btnSwap.addActionListener(this);
- 
+        
+        nameButton.setActionCommand("name");
+        nameButton.addActionListener(this);
+        
+        panelMiddle.add(nameButton);
+        
         //Add components to proper panels
         panelTop.add(btnSample);
         panelTop.add(btnQuit);
         
         //panelMiddle.add(btnYourButton);
-
+        
         panelBottom.add(lblSwap);
         panelBottom.add(btnSwap);
         panelBottom.add(txtWord1);
@@ -63,16 +70,16 @@ class NameGUI extends JFrame implements ActionListener{
         
         //set the window size for the app
         setSize(800,600);
-
+        
         //tells java what to do when the class object closes
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("NameGui Title (how original)");
-
+        
         
         //get visible container and add panelMain to it
         //EVERYTHING has to be arranged and set before adding to ContentPane
         getContentPane().add(panelMain);
-
+        
         
         //make sure you can actually see it, starts off false
         setVisible(true);
@@ -81,7 +88,7 @@ class NameGUI extends JFrame implements ActionListener{
     private void generateMenu(){
         //create an empty menu bar
         JMenuBar menuBar = new JMenuBar();
-
+        
         //create a menu  (file, edit, help, etc)
         JMenu menuFile = new JMenu("File");
         JMenu menuHelp = new JMenu("Help");
@@ -90,19 +97,19 @@ class NameGUI extends JFrame implements ActionListener{
         JMenuItem miQuit = new JMenuItem("Quit");
         miQuit.addActionListener(this);
         miQuit.setActionCommand("quit");
-    
+        
         JMenuItem miHelp = new JMenuItem("Help me");
         miHelp.addActionListener(this);
         miHelp.setActionCommand("help");
-    
+        
         //put together the pieces
         menuFile.add(miQuit);
         menuHelp.add(miHelp);
         menuBar.add(menuFile);
         menuBar.add(menuHelp);
         //add bar to this JFrame
-        setJMenuBar(menuBar);    
-    
+        setJMenuBar(menuBar);
+        
     }
     public void actionPerformed(ActionEvent evt) {
         //this method listens to the JFrame's events and performs appropriately
@@ -122,6 +129,8 @@ class NameGUI extends JFrame implements ActionListener{
             case "help" :
                 JOptionPane.showMessageDialog(this,"There is no help for you.","Sorry",JOptionPane.WARNING_MESSAGE);
                 break;
+            case "name" :
+                JOptionPane.showMessageDialog(this, "William Wang");
                 
         }
     }
