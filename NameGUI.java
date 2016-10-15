@@ -16,11 +16,12 @@ class NameGUI extends JFrame implements ActionListener{
         JPanel panelTop = new JPanel(new FlowLayout());
         JPanel panelMiddle = new JPanel(new FlowLayout());
         JPanel panelBottom = new JPanel(new FlowLayout());
-        
+      
         //create a button named btnSample with text Sample Button
         JButton btnSample = new JButton("Sample Button");
         JButton btnQuit = new JButton("Quit");
         JButton btnSwap = new JButton("Swap");
+        JButton btnName = new JButton("Name");
         
         //create sample textboxes
         txtWord1 = new JTextField(15);
@@ -36,12 +37,14 @@ class NameGUI extends JFrame implements ActionListener{
         btnQuit.addActionListener(this);
         btnSwap.setActionCommand("swap");  
         btnSwap.addActionListener(this);
+        btnName.setActionCommand("name");
+        btnName.addActionListener(this);
  
         //Add components to proper panels
         panelTop.add(btnSample);
         panelTop.add(btnQuit);
         
-        //panelMiddle.add(btnYourButton);
+        panelMiddle.add(btnName);
 
         panelBottom.add(lblSwap);
         panelBottom.add(btnSwap);
@@ -94,7 +97,7 @@ class NameGUI extends JFrame implements ActionListener{
         JMenuItem miHelp = new JMenuItem("Help me");
         miHelp.addActionListener(this);
         miHelp.setActionCommand("help");
-    
+ 
         //put together the pieces
         menuFile.add(miQuit);
         menuHelp.add(miHelp);
@@ -102,7 +105,7 @@ class NameGUI extends JFrame implements ActionListener{
         menuBar.add(menuHelp);
         //add bar to this JFrame
         setJMenuBar(menuBar);    
-    
+       
     }
     public void actionPerformed(ActionEvent evt) {
         //this method listens to the JFrame's events and performs appropriately
@@ -119,6 +122,9 @@ class NameGUI extends JFrame implements ActionListener{
                 txtWord1.setText(txtWord2.getText());
                 txtWord2.setText(tempString);
                 break;
+            case "name" :
+            	 JOptionPane.showMessageDialog(this,"Zhengyu Duan","Name showed",JOptionPane.PLAIN_MESSAGE);
+            	 break;
             case "help" :
                 JOptionPane.showMessageDialog(this,"There is no help for you.","Sorry",JOptionPane.WARNING_MESSAGE);
                 break;
